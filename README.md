@@ -57,31 +57,31 @@ golang-logging-library が扱うJSONフォーマットに、特定の日付/時�
 （※下記の "CreationDate"、"LastChangeDate"が変換後の項目と項目値の例です）
 ```
 {
-	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-product-master-reads/SAP_API_Caller/caller.go#L98",
-	"function": "sap-api-integrations-product-master-reads/SAP_API_Caller.(*SAPAPICaller).General",
-	"level": "INFO",
-	"message": [
-		{
-			"Product": "A001",
-			"IndustrySector": "M",
-			"ProductType": "SERV",
-			"BaseUnit": "AU",
-			"ValidityStartDate": "",
-			"ProductGroup": "A001",
-			"Division": "00",
-			"GrossWeight": "0.000",
-			"WeightUnit": "KG",
-			"SizeOrDimensionText": "",
-			"ProductStandardID": "",
-			"CreationDate": "2016-06-20T09:00:00+09:00",
-			"LastChangeDate": "2017-04-11T09:00:00+09:00",
-			"IsMarkedForDeletion": false,
-			"NetWeight": "0.000",
-			"ChangeNumber": "",
-			"to_Description": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCT_SRV/A_Product('A001')/to_Description"
-		}
-	],
-	"time": "2022-01-08T10:38:23.402329+09:00"
+    "cursor": "/home/ampamman/go/src/data-platform-api-product-master-reads-rmq-kube/DPFM_API_Caller/caller.go#L108",
+    "function": "data-platform-api-product-master-reads-rmq-kube/DPFM_API_Caller.(*DPFMAPICaller).General",
+    "level": "INFO",
+    "message": [
+        {
+            "Product": "21",
+            "IndustrySector": "M",
+            "ProductType": "FERT",
+            "BaseUnit": "PC",
+            "ValidityStartDate": "2022-01-25T09:00:00+09:00",
+            "ProductGroup": "01",
+            "Division": "",
+            "GrossWeight": "2.000",
+            "WeightUnit": "KG",
+            "SizeOrDimensionText": "",
+            "ProductStandardID": "",
+            "CreationDate": "",
+            "LastChangeDate": "2022-09-08T09:00:00+09:00",
+            "IsMarkedForDeletion": false,
+            "NetWeight": "1.000",
+            "ChangeNumber": "",
+            "to_Description": "http://XXX.XX.XX.XXX:8080/dpfm/opu/odata/dpfm/API_PRODUCT_SRV/READS/A_Product('21')/to_Description"
+        }
+    ],
+    "time": "2022-01-26T14:51:52.138052513+09:00"
 }
 ```
 
@@ -89,31 +89,31 @@ golang-logging-library が扱うJSONフォーマットに、特定の日付/時�
 golang-logging-library-for-data-platform は、Output として、本レポジトリ内の sample.json にある、次のような json を出力します。
 ```
 {
-	"cursor": "/home/ampamman/go/src/sap-api-integrations-product-master-reads/SAP_API_Caller/caller.go#L108",
-	"function": "sap-api-integrations-product-master-reads/SAP_API_Caller.(*SAPAPICaller).General",
-	"level": "INFO",
-	"message": [
-		{
-			"Product": "A001",
-			"IndustrySector": "M",
-			"ProductType": "SERV",
-			"BaseUnit": "AU",
-			"ValidityStartDate": "",
-			"ProductGroup": "A001",
-			"Division": "00",
-			"GrossWeight": "0.000",
-			"WeightUnit": "KG",
-			"SizeOrDimensionText": "",
-			"ProductStandardID": "",
-			"CreationDate": "2016-06-20T09:00:00+09:00",
-			"LastChangeDate": "2017-04-11T09:00:00+09:00",
-			"IsMarkedForDeletion": false,
-			"NetWeight": "0.000",
-			"ChangeNumber": "",
-			"to_Description": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCT_SRV/A_Product('A001')/to_Description"
-		}
-	],
-	"time": "2022-01-26T14:51:52.138052513+09:00"
+    "cursor": "/home/ampamman/go/src/data-platform-api-product-master-reads-rmq-kube/DPFM_API_Caller/caller.go#L108",
+    "function": "data-platform-api-product-master-reads-rmq-kube/DPFM_API_Caller.(*DPFMAPICaller).General",
+    "level": "INFO",
+    "message": [
+        {
+            "Product": "21",
+            "IndustrySector": "M",
+            "ProductType": "FERT",
+            "BaseUnit": "PC",
+            "ValidityStartDate": "2022-01-25T09:00:00+09:00",
+            "ProductGroup": "01",
+            "Division": "",
+            "GrossWeight": "2.000",
+            "WeightUnit": "KG",
+            "SizeOrDimensionText": "",
+            "ProductStandardID": "",
+            "CreationDate": "",
+            "LastChangeDate": "2022-09-08T09:00:00+09:00",
+            "IsMarkedForDeletion": false,
+            "NetWeight": "1.000",
+            "ChangeNumber": "",
+            "to_Description": "http://XXX.XX.XX.XXX:8080/dpfm/opu/odata/dpfm/API_PRODUCT_SRV/READS/A_Product('21')/to_Description"
+        }
+    ],
+    "time": "2022-01-26T14:51:52.138052513+09:00"
 }
 ```
 
