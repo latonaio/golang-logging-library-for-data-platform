@@ -1,6 +1,7 @@
 package logger
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 	"time"
@@ -54,6 +55,15 @@ func (l *Logger) Info(msg interface{}, format ...interface{}) {
 // 文字列を引数に渡した場合は文字列を表示、JSONに対応したマップや構造体を引数に渡した場合はJSONを表示
 func (l *Logger) Debug(msg interface{}, format ...interface{}) {
 	l.log(msg, "DEBUG", format)
+}
+
+func (l *Logger) JsonParseOut(msg any) {
+	result, err := json.Marshal(msg)
+	if err != nil {
+		panic(err)
+	}
+	res := string(result)
+	fmt.Println(res)
 }
 
 func (l *Logger) log(msg interface{}, logLevel string, variableStr []interface{}) {
