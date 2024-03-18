@@ -1,5 +1,5 @@
 module github.com/latonaio/golang-logging-library-for-data-platform
 
-go 1.20
+go 1.22
 
-require golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2
+require golang.org/x/xerrors v0.0.0-20231012003039-104605ab7028
