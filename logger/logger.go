@@ -62,7 +62,7 @@ func (l *Logger) JsonParseOut(input interface{}) {
 	makeMsg := make(map[string]interface{})
 	setFields(input, &makeMsg)
 
-	makeMsg["TimeStamp"] = time.Now().Format("2006/01/02 15:04:05")
+	makeMsg["time_stamp"] = time.Now().Format("2006/01/02 15:04:05")
 
 	result, err := json.Marshal(makeMsg)
 	if err != nil {
