@@ -3,8 +3,8 @@ package logger
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/latonaio/golang-logging-library-for-data-platform/output_formatter"
 	"os"
+	"reflect"
 	"time"
 )
 
@@ -58,10 +58,13 @@ func (l *Logger) Debug(msg interface{}, format ...interface{}) {
 	l.log(msg, "DEBUG", format)
 }
 
-func (l *Logger) JsonParseOut(msg output_formatter.SDC) {
-	msg.TimeStamp = time.Now().Format("2006/01/02 15:04:05")
+func (l *Logger) JsonParseOut(input interface{}) {
+	makeMsg := make(map[string]interface{})
+	setFields(input, &makeMsg)
 
-	result, err := json.Marshal(msg)
+	makeMsg["TimeStamp"] = time.Now().Format("2006/01/02 15:04:05")
+
+	result, err := json.Marshal(makeMsg)
 	if err != nil {
 		panic(err)
 	}
@@ -111,5 +114,27 @@ func fin(msg map[string]interface{}) {
 		fmt.Fprintln(os.Stderr, jsonParse(msg))
 	case "INFO", "DEBUG":
 		fmt.Fprintln(os.Stdout, jsonParse(msg))
+	}
+}
+
+func setFields(input interface{}, output *map[string]interface{}) {
+	val := reflect.ValueOf(input)
+	if val.Kind() == reflect.Ptr {
+		val = val.Elem()
+	}
+
+	if val.Kind() != reflect.Struct {
+		fmt.Println("input is not a struct")
+		return
+	}
+
+	typ := val.Type()
+	for i := 0; i < val.NumField(); i++ {
+		field := val.Field(i)
+		fieldName := typ.Field(i).Tag.Get("json")
+		if fieldName == "" {
+			fieldName = typ.Field(i).Name
+		}
+		(*output)[fieldName] = field.Interface()
 	}
 }
