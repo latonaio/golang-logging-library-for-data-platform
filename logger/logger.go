@@ -3,6 +3,7 @@ package logger
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/latonaio/golang-logging-library-for-data-platform/output_formatter"
 	"os"
 	"time"
 )
@@ -57,7 +58,9 @@ func (l *Logger) Debug(msg interface{}, format ...interface{}) {
 	l.log(msg, "DEBUG", format)
 }
 
-func (l *Logger) JsonParseOut(msg any) {
+func (l *Logger) JsonParseOut(msg output_formatter.SDC) {
+	msg.TimeStamp = time.Now().Format("2006/01/02 15:04:05")
+
 	result, err := json.Marshal(msg)
 	if err != nil {
 		panic(err)
